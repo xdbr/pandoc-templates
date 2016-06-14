@@ -10,6 +10,7 @@ $if(linestretch)$
 $endif$
 \usepackage{multicol}
 \usepackage{epigraph}
+\usepackage[bottom]{footmisc}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -202,8 +203,22 @@ $if(subtitle)$
 \subtitle{$subtitle$}
 $endif$
 $if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+\setfnsymbol{wiley}
+\author{
+  $for(author)$
+    $if(author.name)$
+      $author.name$
+    $endif$
+    $if(author.affiliation)$
+      \footnote{$author.affiliation$}
+    $endif$
+    $sep$ \and
+    $endfor$
+}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
 $endif$
+
 $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
 $endif$
