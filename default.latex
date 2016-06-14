@@ -8,6 +8,7 @@ $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
+\usepackage{multicol}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -217,6 +218,8 @@ $abstract$
 \end{abstract}
 $endif$
 
+$if(columns)$\begin{multicols*}{$columns$}$endif$
+
 $for(include-before)$
 $include-before$
 
@@ -259,4 +262,7 @@ $for(include-after)$
 $include-after$
 
 $endfor$
+
+$if(columns)$\end{multicols*}$endif$
+
 \end{document}
