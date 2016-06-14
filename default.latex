@@ -9,6 +9,7 @@ $if(linestretch)$
 \setstretch{$linestretch$}
 $endif$
 \usepackage{multicol}
+\usepackage{epigraph}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -212,6 +213,11 @@ $endif$
 $if(title)$
 \maketitle
 $endif$
+
+$if(epigraph)$
+\epigraph{\it $epigraph.quote$}{$epigraph.author$}
+$endif$
+
 $if(abstract)$
 \begin{abstract}
 $abstract$
